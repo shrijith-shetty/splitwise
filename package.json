@@ -1,0 +1,16 @@
+{
+  "name": "kisshandev",
+  "version": "1.0.0",
+  "description": "CLI app using Node.js and TypeScript",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc && node dist/index.js"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.2",
+    "@types/node": "^25.5.0"
+  }
+}
