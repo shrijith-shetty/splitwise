@@ -1,6 +1,10 @@
 import * as readline from "node:readline";
 // import promises = require("node:readline/promises");
 import { stdin as input, stdout as output } from "node:process";
+import { addFriend } from "./addingFriends.ts";
+import { searchFriend } from "./search-friend.ts";
+import { ask } from "./request.ts";
+import { deleteFriendByEmail, deleteFriendByName } from "./delete_friend.ts";
 
 const options = [
   { label: "Add Friend", value: "1" },
@@ -12,55 +16,38 @@ const options = [
 
 const rl = readline.createInterface({ input, output });
 
-const ask = (input: string) => {
-  console.log(input);
-};
-
-const addFriend = async () => {
-  const name = await ask("Enter friend name:");
-  const email = await ask("Enter friend email:");
-  const phone = await ask("Enter the phone number:");
-  const openingBalance = await ask(
-    "Enter opening balance(positive = they owe you, negative = you owe them):",
-  );
-
-  const friend = {
-    id: Date.now().toString(),
-    name,
-    email,
-    phone,
-    balance: Number(openingBalance),
-  };
-
-  //   const response = AbortController.addFriend(friend);
-
-  //   if (response) {
-  //   }
-};
-
 const choose = (question: string): Promise<string> => {
   return new Promise((resolve) => {
-    rl.question(question + " ", (answer) => {
-      resolve(answer);
-    });
+    rl.question(question + " ", resolve);
   });
 };
 
 const manageFriends = async () => {
   while (true) {
+    for (let i = 0; i < options.length; i++) {
+      console.log(options[i]?.value + " " + options[i]?.label);
+    }
+    console.log("\n");
     let choice = await choose("what do you want to do?");
+
     if (!choice) {
       console.log("Exiting...");
       break;
     }
+
     switch (choice) {
       case "1":
         console.log("Adding friend...");
-        await addFriend();
+        await addFriend(rl);
         break;
 
       case "2":
         console.log("Searching friend...");
+        const searchingMethod: string = await choose(
+          "1. Search by name\n2. Search By Email\n",
+        );
+        if (!searchingMethod) return;
+        searchFriend(searchingMethod, rl);
         break;
 
       case "3":
@@ -69,6 +56,18 @@ const manageFriends = async () => {
 
       case "4":
         console.log("Removing friend...");
+        const deleteFriend: string = await choose(
+          "1. Delete by name\n2. Delete By Email\n",
+        );
+        if (!deleteFriend) return;
+        if (deleteFriend === "1") {
+          const input = await ask("Enter the name to delete\n", rl);
+          deleteFriendByName(input, rl);
+        } else {
+          const input = await ask("Enter the email to delete\n", rl);
+          deleteFriendByEmail(input, rl);
+        }
+
         break;
 
       case "5":
@@ -81,4 +80,4 @@ const manageFriends = async () => {
   }
 };
 
-manageFriends();
+await manageFriends();
