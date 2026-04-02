@@ -1,16 +1,17 @@
 import * as readline from "node:readline";
 // import promises = require("node:readline/promises");
 import { stdin as input, stdout as output } from "node:process";
-import { addFriend } from "./addingFriends.ts";
-import { searchFriend } from "./search-friend.ts";
-import { ask } from "./request.ts";
-import { deleteFriendByEmail, deleteFriendByName } from "./delete_friend.ts";
+import { addFriend } from "./addingFriends.js";
+import { searchFriend } from "./search-friend.js";
+import { ask } from "./request.js";
+import { deleteFriendByEmail, deleteFriendByName } from "./delete_friend.js";
+import { updateSearchFriend } from "./update-serch-friend.js";
 
 const options = [
   { label: "Add Friend", value: "1" },
   { label: "Search Friend", value: "2" },
-  { label: "Delete Friend", value: "3" },
-  { label: "Remove Friend", value: "4" },
+  { label: "Update Friend", value: "3" },
+  { label: "Delete Friend", value: "4" },
   { label: "Exit", value: "5" },
 ];
 
@@ -22,7 +23,7 @@ const choose = (question: string): Promise<string> => {
   });
 };
 
-const manageFriends = async () => {
+export const manageFriends = async () => {
   while (true) {
     for (let i = 0; i < options.length; i++) {
       console.log(options[i]?.value + " " + options[i]?.label);
@@ -52,20 +53,25 @@ const manageFriends = async () => {
 
       case "3":
         console.log("Updating friend...");
+        const freindDetail: string = await choose(
+          "1. Search by name\n2. Search By Email\n",
+        );
+        if (!freindDetail) return;
+        updateSearchFriend(freindDetail, rl);
         break;
 
       case "4":
-        console.log("Removing friend...");
+        console.log("Delete friend...");
         const deleteFriend: string = await choose(
           "1. Delete by name\n2. Delete By Email\n",
         );
         if (!deleteFriend) return;
         if (deleteFriend === "1") {
           const input = await ask("Enter the name to delete\n", rl);
-          deleteFriendByName(input, rl);
+          deleteFriendByName(input);
         } else {
           const input = await ask("Enter the email to delete\n", rl);
-          deleteFriendByEmail(input, rl);
+          deleteFriendByEmail(input);
         }
 
         break;
@@ -79,5 +85,3 @@ const manageFriends = async () => {
     }
   }
 };
-
-await manageFriends();

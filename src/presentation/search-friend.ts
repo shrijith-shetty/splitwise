@@ -1,7 +1,7 @@
 import { promises as fs } from "node:fs";
 import * as readline from "node:readline";
-import { existsSync, mkdirSync } from "node:fs";
-import { ask } from "./request.ts";
+// import { existsSync, mkdirSync } from "node:fs";
+import { ask } from "./request.js";
 import path from "node:path";
 
 export const searchFriend = async (
@@ -31,11 +31,11 @@ const getFriends = async () => {
 const searchByEmail = async (email: string) => {
   const friends = await getFriends();
   return friends.find(
-    (a: any) => a.email.toLowerCase() === email.toLowerCase(),
+    (a: any) => a.email.toLowerCase() === email.toLowerCase() && !a.isDelete,
   );
 };
 
 const searchByName = async (name: string) => {
   const friends = await getFriends();
-  return friends.find((a: any) => a.name.toLowerCase() === name.toLowerCase());
+  return friends.find((a: any) => a.name.toLowerCase() === name.toLowerCase() && !a.isDelete);
 };

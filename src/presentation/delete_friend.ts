@@ -4,15 +4,12 @@ import * as readline from "node:readline";
 
 const FILE_PATH = "./data/friend.json";
 
-export const deleteFriendByEmail = async (
-  email: string,
-  rl: readline.Interface,
-) => {
+export const deleteFriendByEmail = async (email: string) => {
   const data = await fs.readFile(FILE_PATH, "utf-8");
   const friends = JSON.parse(data);
 
   const updateFriends = friends.filter(
-    (f: any) => f.email.toLowerCase() !== email.toLowerCase(),
+    (f: any) => f.email.toLowerCase() !== email.toLowerCase() && !f.isDelete,
   );
 
   if (friends.length === updateFriends.length) {
@@ -28,15 +25,12 @@ export const deleteFriendByEmail = async (
   console.log("Friend deleted successfully");
 };
 
-export const deleteFriendByName = async (
-  name: string,
-  rl: readline.Interface,
-) => {
+export const deleteFriendByName = async (name: string) => {
   const data = await fs.readFile(FILE_PATH, "utf-8");
   const friends = JSON.parse(data);
 
   const updateFriends = friends.filter(
-    (f: any) => f.name.toLowerCase() !== name.toLowerCase(),
+    (f: any) => f.name.toLowerCase() !== name.toLowerCase() && !f.isDelete,
   );
 
   if (friends.length === updateFriends.length) {

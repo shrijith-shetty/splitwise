@@ -1,16 +1,322 @@
 [
   {
-    "id": "1775093723065",
-    "name": "hello",
-    "email": "hello",
-    "phone": "hello",
-    "balance": null
+    "id": "1775093744001",
+    "name": "Akash Verma",
+    "email": "akash@example.com",
+    "phone": "7012345678",
+    "balance": 900,
+    "isDeleted": true
   },
   {
-    "id": "1775093742239",
-    "name": "asdfkjl",
-    "email": "asldkjf",
-    "phone": "asdfj",
-    "balance": 1000
+    "id": "1775093744002",
+    "name": "Ritu Sharma",
+    "email": "ritu@example.com",
+    "phone": "7023456789",
+    "balance": null,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744003",
+    "name": "Sanjay Gupta",
+    "email": "sanjay@example.com",
+    "phone": "7034567890",
+    "balance": 1500,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744004",
+    "name": "Pallavi Singh",
+    "email": "pallavi@example.com",
+    "phone": "7045678901",
+    "balance": 300,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744005",
+    "name": "Mohit Jain",
+    "email": "mohit@example.com",
+    "phone": "7056789012",
+    "balance": 2500,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744006",
+    "name": "Komal Yadav",
+    "email": "komal@example.com",
+    "phone": "7067890123",
+    "balance": 100,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744007",
+    "name": "Naveen Reddy",
+    "email": "naveen@example.com",
+    "phone": "7078901234",
+    "balance": null,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744008",
+    "name": "Asha Nair",
+    "email": "asha@example.com",
+    "phone": "7089012345",
+    "balance": 1200,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744009",
+    "name": "Varun Kapoor",
+    "email": "varun@example.com",
+    "phone": "7090123456",
+    "balance": 600,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744010",
+    "name": "Geeta Iyer",
+    "email": "geeta@example.com",
+    "phone": "7101234567",
+    "balance": 2000,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744011",
+    "name": "Ramesh Pillai",
+    "email": "ramesh@example.com",
+    "phone": "7112345678",
+    "balance": null,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744012",
+    "name": "Lata Mishra",
+    "email": "lata@example.com",
+    "phone": "7123456789",
+    "balance": 850,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744013",
+    "name": "Imran Khan",
+    "email": "imran@example.com",
+    "phone": "7134567890",
+    "balance": 400,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744014",
+    "name": "Sonal Bansal",
+    "email": "sonal@example.com",
+    "phone": "7145678901",
+    "balance": 1750,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744015",
+    "name": "Deepa Menon",
+    "email": "deepa@example.com",
+    "phone": "7156789012",
+    "balance": 950,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744016",
+    "name": "Rohit Das",
+    "email": "rohitd@example.com",
+    "phone": "7167890123",
+    "balance": null,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744017",
+    "name": "Neeraj Kumar",
+    "email": "neeraj@example.com",
+    "phone": "7178901234",
+    "balance": 500,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744018",
+    "name": "Tanvi Shah",
+    "email": "tanvi@example.com",
+    "phone": "7189012345",
+    "balance": 1300,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744019",
+    "name": "Karthik Rao",
+    "email": "karthik@example.com",
+    "phone": "7190123456",
+    "balance": 700,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744020",
+    "name": "Preeti Arora",
+    "email": "preeti@example.com",
+    "phone": "7201234567",
+    "balance": 2200,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744021",
+    "name": "Ajay Singh",
+    "email": "ajay@example.com",
+    "phone": "7212345678",
+    "balance": 300,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744022",
+    "name": "Shalini Mehta",
+    "email": "shalini@example.com",
+    "phone": "7223456789",
+    "balance": null,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744023",
+    "name": "Vikas Gupta",
+    "email": "vikas@example.com",
+    "phone": "7234567890",
+    "balance": 1450,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744024",
+    "name": "Ankur Patel",
+    "email": "ankur@example.com",
+    "phone": "7245678901",
+    "balance": 600,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744025",
+    "name": "Seema Rani",
+    "email": "seema@example.com",
+    "phone": "7256789012",
+    "balance": 900,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744026",
+    "name": "Dinesh Yadav",
+    "email": "dinesh@example.com",
+    "phone": "7267890123",
+    "balance": 3000,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744027",
+    "name": "Kiran Patel",
+    "email": "kiranp@example.com",
+    "phone": "7278901234",
+    "balance": null,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744028",
+    "name": "Alisha Khan",
+    "email": "alisha@example.com",
+    "phone": "7289012345",
+    "balance": 1250,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744029",
+    "name": "Manoj Tiwari",
+    "email": "manoj@example.com",
+    "phone": "7290123456",
+    "balance": 400,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744030",
+    "name": "Pankaj Sinha",
+    "email": "pankaj@example.com",
+    "phone": "7301234567",
+    "balance": 800,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744031",
+    "name": "Rekha Devi",
+    "email": "rekha@example.com",
+    "phone": "7312345678",
+    "balance": null,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744032",
+    "name": "Arvind Kumar",
+    "email": "arvind@example.com",
+    "phone": "7323456789",
+    "balance": 2100,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744033",
+    "name": "Nikita Jain",
+    "email": "nikita@example.com",
+    "phone": "7334567890",
+    "balance": 500,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744034",
+    "name": "Yogesh Chauhan",
+    "email": "yogesh@example.com",
+    "phone": "7345678901",
+    "balance": 950,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744035",
+    "name": "Mehul Shah",
+    "email": "mehul@example.com",
+    "phone": "7356789012",
+    "balance": 1600,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744036",
+    "name": "Siddharth Roy",
+    "email": "sid@example.com",
+    "phone": "7367890123",
+    "balance": null,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744037",
+    "name": "Anjali Verma",
+    "email": "anjali@example.com",
+    "phone": "7378901234",
+    "balance": 1100,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744038",
+    "name": "Harsha V",
+    "email": "harsha@example.com",
+    "phone": "7389012345",
+    "balance": 300,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744039",
+    "name": "Tejas Kulkarni",
+    "email": "tejas@example.com",
+    "phone": "7390123456",
+    "balance": 2700,
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744040",
+    "name": "Bhavesh Patel",
+    "email": "bhavesh@example.com",
+    "phone": "7401234567",
+    "balance": 450,
+    "isDeleted": true
   }
 ]

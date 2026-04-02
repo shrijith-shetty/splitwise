@@ -1,7 +1,8 @@
 import { promises as fs } from "node:fs";
 import * as readline from "node:readline";
 import { existsSync, mkdirSync } from "node:fs";
-import { ask } from "./request.ts";
+import { ask } from "./request.js";
+import type { Friend } from "../model/friend.js";
 
 const FILE_PATH = "./data/friend.json";
 
@@ -9,14 +10,15 @@ export const addFriend = async (rl: readline.Interface) => {
   const name: string = await ask("Enter friend name", rl);
   const email: string = await ask("Enter friend email", rl);
   const phone: string = await ask("Enter phone number", rl);
-  const openingBalance: string = await ask("Enter opening balance", rl);
+  const balance: string = await ask("Enter opening balance", rl);
 
-  const newFriend = {
+  const newFriend: Friend = {
     id: Date.now().toString(),
     name,
     email,
     phone,
-    balance: Number(openingBalance),
+    balance: "0",
+    isDelete: true,
   };
 
   try {
