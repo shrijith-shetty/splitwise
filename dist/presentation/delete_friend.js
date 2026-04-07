@@ -1,10 +1,12 @@
 import path from "node:path";
 import { promises as fs } from "node:fs";
 import * as readline from "node:readline";
-const FILE_PATH = "./data/friend.json";
+const FILE_PATH = path.resolve(import.meta.dirname, "../../data/friend.json");
 export const deleteFriendByEmail = async (email) => {
     const data = await fs.readFile(FILE_PATH, "utf-8");
     const friends = JSON.parse(data);
+    if (friends.length === 0)
+        return;
     const updateFriends = friends.filter((f) => f.email.toLowerCase() !== email.toLowerCase() && !f.isDelete);
     if (friends.length === updateFriends.length) {
         console.log("No friend found to delete");

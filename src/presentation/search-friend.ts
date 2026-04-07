@@ -1,6 +1,5 @@
 import { promises as fs } from "node:fs";
 import * as readline from "node:readline";
-// import { existsSync, mkdirSync } from "node:fs";
 import { ask } from "./request.js";
 import path from "node:path";
 
@@ -22,9 +21,8 @@ export const searchFriend = async (
 };
 
 const getFriends = async () => {
-  const filePath = path.resolve("./data/friend.json");
+  const filePath = path.resolve(import.meta.dirname, "../../data/friend.json");
   const data = await fs.readFile(filePath, "utf-8");
-  //   console.log(JSON.parse(data));
   return JSON.parse(data);
 };
 
@@ -37,5 +35,7 @@ const searchByEmail = async (email: string) => {
 
 const searchByName = async (name: string) => {
   const friends = await getFriends();
-  return friends.find((a: any) => a.name.toLowerCase() === name.toLowerCase() && !a.isDelete);
+  return friends.find(
+    (a: any) => a.name.toLowerCase() === name.toLowerCase() && !a.isDelete,
+  );
 };

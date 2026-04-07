@@ -3,8 +3,9 @@ import * as readline from "node:readline";
 import { existsSync, mkdirSync } from "node:fs";
 import { ask } from "./request.js";
 import type { Friend } from "../model/friend.js";
+import path from "node:path";
 
-const FILE_PATH = "./data/friend.json";
+const FILE_PATH = path.resolve(import.meta.dirname, "../../data/friend.json");
 
 export const addFriend = async (rl: readline.Interface) => {
   const name: string = await ask("Enter friend name", rl);
@@ -22,10 +23,6 @@ export const addFriend = async (rl: readline.Interface) => {
   };
 
   try {
-    if (!existsSync("./data")) {
-      mkdirSync("./data");
-    }
-
     if (!existsSync(FILE_PATH)) {
       await fs.writeFile(FILE_PATH, "[]");
     }

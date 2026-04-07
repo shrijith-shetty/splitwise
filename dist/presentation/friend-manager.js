@@ -40,14 +40,14 @@ export const manageFriends = async () => {
                 const searchingMethod = await choose("1. Search by name\n2. Search By Email\n");
                 if (!searchingMethod)
                     return;
-                searchFriend(searchingMethod, rl);
+                await searchFriend(searchingMethod, rl);
                 break;
             case "3":
                 console.log("Updating friend...");
-                const freindDetail = await choose("1. Search by name\n2. Search By Email\n");
+                const freindDetail = await choose("\n1. Search by phone number\n2. Search By Email\n");
                 if (!freindDetail)
                     return;
-                updateSearchFriend(freindDetail, rl);
+                await updateSearchFriend(freindDetail, rl);
                 break;
             case "4":
                 console.log("Delete friend...");
@@ -56,11 +56,11 @@ export const manageFriends = async () => {
                     return;
                 if (deleteFriend === "1") {
                     const input = await ask("Enter the name to delete\n", rl);
-                    deleteFriendByName(input);
+                    await deleteFriendByName(input);
                 }
                 else {
                     const input = await ask("Enter the email to delete\n", rl);
-                    deleteFriendByEmail(input);
+                    await deleteFriendByEmail(input);
                 }
                 break;
             case "5":

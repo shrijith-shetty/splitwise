@@ -2,7 +2,8 @@ import { promises as fs } from "node:fs";
 import * as readline from "node:readline";
 import { existsSync, mkdirSync } from "node:fs";
 import { ask } from "./request.js";
-const FILE_PATH = "./data/friend.json";
+import path from "node:path";
+const FILE_PATH = path.resolve(import.meta.dirname, "../../data/friend.json");
 export const addFriend = async (rl) => {
     const name = await ask("Enter friend name", rl);
     const email = await ask("Enter friend email", rl);
@@ -17,9 +18,6 @@ export const addFriend = async (rl) => {
         isDelete: true,
     };
     try {
-        if (!existsSync("./data")) {
-            mkdirSync("./data");
-        }
         if (!existsSync(FILE_PATH)) {
             await fs.writeFile(FILE_PATH, "[]");
         }
