@@ -4,6 +4,6 @@ export interface Friend {
     email: string;
     phone: string;
     balance: string;
-    isDelete: boolean;
+    isDeleted: boolean;
 }
 //# sourceMappingURL=friend.d.ts.map

@@ -1,15 +1,15 @@
-import path from "node:path";
 import { promises as fs } from "node:fs";
-import * as readline from "node:readline";
-
-const FILE_PATH = path.resolve(import.meta.dirname, "../../data/friend.json");
+import { FILE_PATH } from "../core/filt_path.core.js";
+import { getFriends } from "../core/getUserDetail/fetch_data.js";
+import { searchByName } from "../core/validating/search_by_name.js";
+import { json } from "node:stream/consumers";
 
 export const deleteFriendByEmail = async (email: string) => {
   const data = await fs.readFile(FILE_PATH, "utf-8");
   const friends = JSON.parse(data);
   if (friends.length === 0) return;
   const updateFriends = friends.filter(
-    (f: any) => f.email.toLowerCase() !== email.toLowerCase() && !f.isDelete,
+    (f: any) => f.email.toLowerCase() !== email.toLowerCase() && !f.isDeleted,
   );
 
   if (friends.length === updateFriends.length) {
@@ -26,22 +26,35 @@ export const deleteFriendByEmail = async (email: string) => {
 };
 
 export const deleteFriendByName = async (name: string) => {
-  const data = await fs.readFile(FILE_PATH, "utf-8");
-  const friends = JSON.parse(data);
+  // const data = await fs.readFile(FILE_PATH, "utf-8");
+  try {
+    const friends = await getFriends();
 
-  const updateFriends = friends.filter(
-    (f: any) => f.name.toLowerCase() !== name.toLowerCase() && !f.isDelete,
-  );
+    if (!friends) {
+      console.log("Not found");
+    }
 
-  if (friends.length === updateFriends.length) {
-    console.log("No friend found to delete");
-    return;
+    let found = false;
+
+    const updateFriends = friends.map((f: any) => {
+      if (f.name.toLowerCase() === name.toLowerCase && !f.isDeleted) {
+        found = true;
+        return { ...f, isDeleted: true };
+      }
+      return f;
+    });
+    if (!found) {
+      console.log("No friend found to delete");
+      return;
+    }
+
+    await fs.writeFile(
+      FILE_PATH,
+      JSON.stringify(updateFriends, null, 2),
+      "utf-8",
+    );
+    console.log("Friend deleted successfully");
+  } catch (e) {
+    console.log("error:", e);
   }
-
-  await fs.writeFile(
-    FILE_PATH,
-    JSON.stringify(updateFriends, null, 2),
-    "utf-8",
-  );
-  console.log("Friend deleted successfully");
 };

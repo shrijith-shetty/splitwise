@@ -1,4 +1,4 @@
-import { ask } from "./request.js";
+import { ask } from "./ask.js";
 import { promises as fs } from "node:fs";
 import * as readline from "node:readline";
 import path from "node:path";
@@ -9,7 +9,6 @@ export const updateFriend = async (index, rl) => {
     const data = await fs.readFile(FILE_PATH, "utf-8");
     const friends = JSON.parse(data);
     const currentIndex = friends[index];
-    console.log(currentIndex);
     if (!currentIndex)
         return "Not found";
     const name = await ask("Enter your name", rl, currentIndex?.name);
@@ -25,5 +24,4 @@ export const updateFriend = async (index, rl) => {
     };
     await fs.writeFile(FILE_PATH, JSON.stringify(friends, null, 2));
 };
-// updateFriend(3, rl);
 //# sourceMappingURL=updateFriend.js.map

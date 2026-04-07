@@ -1,35 +1,23 @@
 import * as readline from "node:readline";
-// import promises = require("node:readline/promises");
 import { stdin as input, stdout as output } from "node:process";
 import { addFriend } from "./addingFriends.js";
 import { searchFriend } from "./search-friend.js";
-import { ask } from "./request.js";
+import { ask } from "./ask.js";
 import { deleteFriendByEmail, deleteFriendByName } from "./delete_friend.js";
 import { updateSearchFriend } from "./update-serch-friend.js";
-
-const options = [
-  { label: "Add Friend", value: "1" },
-  { label: "Search Friend", value: "2" },
-  { label: "Update Friend", value: "3" },
-  { label: "Delete Friend", value: "4" },
-  { label: "Exit", value: "5" },
-];
+import { choose } from "../control/choice.js";
+import { options } from "./user_option.js";
 
 const rl = readline.createInterface({ input, output });
 
-const choose = (question: string): Promise<string> => {
-  return new Promise((resolve) => {
-    rl.question(question + " ", resolve);
-  });
-};
-
 export const manageFriends = async () => {
   while (true) {
+    console.log();
     for (let i = 0; i < options.length; i++) {
-      console.log(options[i]?.value + " " + options[i]?.label);
+      console.log(options[i]?.value + ". " + options[i]?.label);
     }
-    console.log("\n");
-    let choice = await choose("what do you want to do?");
+    console.log("");
+    let choice = await choose("what do you want to do?", rl);
 
     if (!choice) {
       console.log("Exiting...");
@@ -46,6 +34,7 @@ export const manageFriends = async () => {
         console.log("Searching friend...");
         const searchingMethod: string = await choose(
           "1. Search by name\n2. Search By Email\n",
+          rl,
         );
         if (!searchingMethod) return;
         await searchFriend(searchingMethod, rl);
@@ -55,6 +44,7 @@ export const manageFriends = async () => {
         console.log("Updating friend...");
         const freindDetail: string = await choose(
           "\n1. Search by phone number\n2. Search By Email\n",
+          rl,
         );
         if (!freindDetail) return;
         await updateSearchFriend(freindDetail, rl);
@@ -64,6 +54,7 @@ export const manageFriends = async () => {
         console.log("Delete friend...");
         const deleteFriend: string = await choose(
           "1. Delete by name\n2. Delete By Email\n",
+          rl,
         );
         if (!deleteFriend) return;
         if (deleteFriend === "1") {
@@ -81,7 +72,7 @@ export const manageFriends = async () => {
         rl.close();
         return;
       default:
-        console.log("Invalid choice. Please try again.");
+        console.log("\nInvalid choice. Please try again.");
     }
   }
 };

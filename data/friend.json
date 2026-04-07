@@ -5,7 +5,7 @@
     "email": "akash@example.com",
     "phone": "7012345678",
     "balance": 900,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744002",
@@ -13,7 +13,7 @@
     "email": "ritu@example.com",
     "phone": "7023456789",
     "balance": null,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744003",
@@ -21,7 +21,7 @@
     "email": "sanjay@example.com",
     "phone": "7034567890",
     "balance": 1500,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744004",
@@ -29,7 +29,7 @@
     "email": "pallavi@example.com",
     "phone": "7045678901",
     "balance": 300,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744005",
@@ -37,7 +37,7 @@
     "email": "mohit@example.com",
     "phone": "7056789012",
     "balance": 2500,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744006",
@@ -45,7 +45,7 @@
     "email": "komal@example.com",
     "phone": "7067890123",
     "balance": 100,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744007",
@@ -53,7 +53,7 @@
     "email": "naveen@example.com",
     "phone": "7078901234",
     "balance": null,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744008",
@@ -61,7 +61,7 @@
     "email": "asha@example.com",
     "phone": "7089012345",
     "balance": 1200,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744009",
@@ -69,7 +69,7 @@
     "email": "varun@example.com",
     "phone": "7090123456",
     "balance": 600,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744010",
@@ -77,7 +77,7 @@
     "email": "geeta@example.com",
     "phone": "7101234567",
     "balance": 2000,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744011",
@@ -85,7 +85,7 @@
     "email": "ramesh@example.com",
     "phone": "7112345678",
     "balance": null,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744012",
@@ -93,7 +93,7 @@
     "email": "lata@example.com",
     "phone": "7123456789",
     "balance": 850,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744013",
@@ -101,7 +101,7 @@
     "email": "imran@example.com",
     "phone": "7134567890",
     "balance": 400,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744014",
@@ -109,7 +109,7 @@
     "email": "sonal@example.com",
     "phone": "7145678901",
     "balance": 1750,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744015",
@@ -117,7 +117,7 @@
     "email": "deepa@example.com",
     "phone": "7156789012",
     "balance": 950,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744016",
@@ -125,7 +125,7 @@
     "email": "rohitd@example.com",
     "phone": "7167890123",
     "balance": null,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744017",
@@ -133,7 +133,7 @@
     "email": "neeraj@example.com",
     "phone": "7178901234",
     "balance": 500,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744018",
@@ -141,7 +141,7 @@
     "email": "tanvi@example.com",
     "phone": "7189012345",
     "balance": 1300,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744019",
@@ -149,7 +149,7 @@
     "email": "karthik@example.com",
     "phone": "7190123456",
     "balance": 700,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744020",
@@ -157,7 +157,7 @@
     "email": "preeti@example.com",
     "phone": "7201234567",
     "balance": 2200,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744021",
@@ -165,7 +165,7 @@
     "email": "ajay@example.com",
     "phone": "7212345678",
     "balance": 300,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744022",
@@ -173,7 +173,7 @@
     "email": "shalini@example.com",
     "phone": "7223456789",
     "balance": null,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744023",
@@ -181,7 +181,7 @@
     "email": "vikas@example.com",
     "phone": "7234567890",
     "balance": 1450,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744024",
@@ -189,7 +189,7 @@
     "email": "ankur@example.com",
     "phone": "7245678901",
     "balance": 600,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744025",
@@ -197,7 +197,7 @@
     "email": "seema@example.com",
     "phone": "7256789012",
     "balance": 900,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744026",
@@ -205,7 +205,7 @@
     "email": "dinesh@example.com",
     "phone": "7267890123",
     "balance": 3000,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744027",
@@ -213,7 +213,7 @@
     "email": "kiranp@example.com",
     "phone": "7278901234",
     "balance": null,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744028",
@@ -221,7 +221,7 @@
     "email": "alisha@example.com",
     "phone": "7289012345",
     "balance": 1250,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744029",
@@ -229,7 +229,7 @@
     "email": "manoj@example.com",
     "phone": "7290123456",
     "balance": 400,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744030",
@@ -237,7 +237,7 @@
     "email": "pankaj@example.com",
     "phone": "7301234567",
     "balance": 800,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744031",
@@ -245,7 +245,7 @@
     "email": "rekha@example.com",
     "phone": "7312345678",
     "balance": null,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744032",
@@ -253,7 +253,7 @@
     "email": "arvind@example.com",
     "phone": "7323456789",
     "balance": 2100,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744033",
@@ -261,7 +261,7 @@
     "email": "nikita@example.com",
     "phone": "7334567890",
     "balance": 500,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744034",
@@ -269,7 +269,7 @@
     "email": "yogesh@example.com",
     "phone": "7345678901",
     "balance": 950,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744035",
@@ -277,7 +277,7 @@
     "email": "mehul@example.com",
     "phone": "7356789012",
     "balance": 1600,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744036",
@@ -285,7 +285,7 @@
     "email": "sid@example.com",
     "phone": "7367890123",
     "balance": null,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744037",
@@ -293,7 +293,7 @@
     "email": "anjali@example.com",
     "phone": "7378901234",
     "balance": "1250",
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744038",
@@ -301,7 +301,7 @@
     "email": "harsha@example.com",
     "phone": "7389012345",
     "balance": 300,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744039",
@@ -309,7 +309,7 @@
     "email": "tejas@example.com",
     "phone": "7390123456",
     "balance": 2700,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775093744040",
@@ -317,7 +317,7 @@
     "email": "bhavesh@example.com",
     "phone": "7401234567",
     "balance": 450,
-    "isDeleted": true
+    "isDeleted": false
   },
   {
     "id": "1775528037474",
@@ -325,6 +325,22 @@
     "email": "8798372010",
     "phone": "2342234234",
     "balance": "0",
-    "isDelete": true
+    "isDeleted": false
+  },
+  {
+    "id": "1775535455940",
+    "name": "Tejas",
+    "email": "tejasj@gmail.com",
+    "phone": "8798234223",
+    "balance": "0",
+    "isDeleted": false
+  },
+  {
+    "id": "1775539119425",
+    "name": "shrijith",
+    "email": "shrijth@gmail.com",
+    "phone": "23424252",
+    "balance": "0",
+    "isDeleted": false
   }
 ]

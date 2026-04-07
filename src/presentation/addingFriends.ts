@@ -1,7 +1,7 @@
 import { promises as fs } from "node:fs";
 import * as readline from "node:readline";
 import { existsSync, mkdirSync } from "node:fs";
-import { ask } from "./request.js";
+import { ask } from "./ask.js";
 import type { Friend } from "../model/friend.js";
 import path from "node:path";
 
@@ -19,7 +19,7 @@ export const addFriend = async (rl: readline.Interface) => {
     email,
     phone,
     balance: "0",
-    isDelete: true,
+    isDeleted: false,
   };
 
   try {
@@ -34,7 +34,7 @@ export const addFriend = async (rl: readline.Interface) => {
 
     await fs.writeFile(FILE_PATH, JSON.stringify(friends, null, 2));
 
-    console.log("Friend saved!");
+    // console.log("Friend saved!");  
   } catch (err) {
     console.error("Error saving Friend:", err);
   }

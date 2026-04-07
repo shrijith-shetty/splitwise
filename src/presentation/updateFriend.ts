@@ -1,4 +1,4 @@
-import { ask } from "./request.js";
+import { ask } from "./ask.js";
 import { promises as fs } from "node:fs";
 import type { Friend } from "../model/friend.js";
 import * as readline from "node:readline";
@@ -11,7 +11,6 @@ export const updateFriend = async (index: number, rl: readline.Interface) => {
   const data = await fs.readFile(FILE_PATH, "utf-8");
   const friends: Friend[] = JSON.parse(data);
   const currentIndex: Friend | undefined = friends[index];
-  console.log(currentIndex);
   if (!currentIndex) return "Not found";
   const name = await ask("Enter your name", rl, currentIndex?.name);
   const email = await ask("Enter you email address: ", rl, currentIndex?.email);
@@ -27,5 +26,3 @@ export const updateFriend = async (index: number, rl: readline.Interface) => {
 
   await fs.writeFile(FILE_PATH, JSON.stringify(friends, null, 2));
 };
-
-// updateFriend(3, rl);

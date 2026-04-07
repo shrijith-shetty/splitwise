@@ -1,41 +1,25 @@
 import { promises as fs } from "node:fs";
 import * as readline from "node:readline";
-import { ask } from "./request.js";
-import path from "node:path";
+import { ask } from "./ask.js";
+import { searchByName } from "../core/validating/search_by_name.js";
+import { searchByEmail } from "../core/validating/search_by_email.js";
+import type { Friend } from "../model/friend.js";
+import { getFriends } from "../core/getUserDetail/fetch_data.js";
 
 export const searchFriend = async (
   search_Method: string,
   rl: readline.Interface,
 ) => {
+  const friends: Friend[] = await getFriends();
   if (search_Method === "1") {
     const nameOrEmail = await ask("Enter the name to Search\n", rl);
     const result = await searchByName(nameOrEmail);
-    if (!result) console.log("Not found...");
-    console.log(result);
+    if (result) console.log("Not found...");
+    console.log(friends[result]);
   } else {
     const nameOrEmail = await ask("Enter the email to search\n", rl);
     const result = await searchByEmail(nameOrEmail);
     if (!result) console.log("Not found...");
-    console.log(result);
+    console.log(friends[result]);
   }
-};
-
-const getFriends = async () => {
-  const filePath = path.resolve(import.meta.dirname, "../../data/friend.json");
-  const data = await fs.readFile(filePath, "utf-8");
-  return JSON.parse(data);
-};
-
-const searchByEmail = async (email: string) => {
-  const friends = await getFriends();
-  return friends.find(
-    (a: any) => a.email.toLowerCase() === email.toLowerCase() && !a.isDelete,
-  );
-};
-
-const searchByName = async (name: string) => {
-  const friends = await getFriends();
-  return friends.find(
-    (a: any) => a.name.toLowerCase() === name.toLowerCase() && !a.isDelete,
-  );
 };

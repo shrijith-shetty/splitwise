@@ -4,5 +4,5 @@ export interface Friend {
   email: string;
   phone: string;
   balance: string;
-  isDelete: boolean;
+  isDeleted: boolean;
 }

@@ -1,7 +1,7 @@
 import { promises as fs } from "node:fs";
 import * as readline from "node:readline";
 import { existsSync, mkdirSync } from "node:fs";
-import { ask } from "./request.js";
+import { ask } from "./ask.js";
 import path from "node:path";
 const FILE_PATH = path.resolve(import.meta.dirname, "../../data/friend.json");
 export const addFriend = async (rl) => {
@@ -15,7 +15,7 @@ export const addFriend = async (rl) => {
         email,
         phone,
         balance: "0",
-        isDelete: true,
+        isDeleted: false,
     };
     try {
         if (!existsSync(FILE_PATH)) {
@@ -25,7 +25,7 @@ export const addFriend = async (rl) => {
         const friends = JSON.parse(data);
         friends.push(newFriend);
         await fs.writeFile(FILE_PATH, JSON.stringify(friends, null, 2));
-        console.log("Friend saved!");
+        // console.log("Friend saved!");  
     }
     catch (err) {
         console.error("Error saving Friend:", err);
