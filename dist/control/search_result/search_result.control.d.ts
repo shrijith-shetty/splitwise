@@ -1,3 +1,2 @@
-export declare const searchResults: (input: string) => void;
-export declare const tablePrint: () => void;
+export declare const searchResults: (input: string) => Promise<void>;
 //# sourceMappingURL=search_result.control.d.ts.map

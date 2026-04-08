@@ -14,12 +14,18 @@ export const searchFriend = async (
   if (search_Method === "1") {
     const nameOrEmail = await ask("Enter the name to Search\n", rl);
     const result = await searchByName(nameOrEmail);
-    if (result) console.log("Not found...");
+    if (!result) {
+      console.log("Not found...");
+      return;
+    }
     console.log(friends[result]);
   } else {
     const nameOrEmail = await ask("Enter the email to search\n", rl);
     const result = await searchByEmail(nameOrEmail);
-    if (!result) console.log("Not found...");
+    if (!result) {
+      console.log("Not found...");
+      return;
+    }
     console.log(friends[result]);
   }
 };
