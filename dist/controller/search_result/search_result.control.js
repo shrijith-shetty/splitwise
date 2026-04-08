@@ -1,5 +1,5 @@
 import { getFriends } from "../../core/getUserDetail/fetch_data.js";
-import { tablePrint } from "../../presentation/printTable.presentation.js";
+import { tablePrint } from "../../presentation/print-Table_friend.js";
 export let searchFriends;
 export const searchResults = async (input) => {
     const data = await getFriends();
@@ -8,7 +8,7 @@ export const searchResults = async (input) => {
         e.name.toLowerCase().trim().includes(cleanInput) |
             e.email.toLowerCase().trim().includes(cleanInput) |
             e.phone.toLowerCase().trim().includes(cleanInput));
-    tablePrint(searchFriends);
+    // tablePrint(searchFriends);
     return searchFriends;
 };
 //# sourceMappingURL=search_result.control.js.map

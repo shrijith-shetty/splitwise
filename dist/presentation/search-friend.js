@@ -4,7 +4,7 @@ import { ask } from "./ask.js";
 import { searchByName } from "../core/validating/search_by_name.js";
 import { searchByEmail } from "../core/validating/search_by_email.js";
 import { getFriends } from "../core/getUserDetail/fetch_data.js";
-import { searchResults } from "../control/search_result/search_result.control.js";
+import { searchResults } from "../controller/search_result/search_result.control.js";
 export const searchFriend = async (search_Method, rl) => {
     const friends = await getFriends();
     if (search_Method === "1") {

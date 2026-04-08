@@ -1,7 +1,7 @@
 import { promises as fs } from "node:fs";
 import { FILE_PATH } from "../core/filt_path.core.js";
 import { getFriends } from "../core/getUserDetail/fetch_data.js";
-import { searchByName } from "../core/validating/search_by_name.js";
+import { searchByName } from "../core/validator/search_by_name.js";
 import { json } from "node:stream/consumers";
 
 export const deleteFriendByEmail = async (email: string) => {

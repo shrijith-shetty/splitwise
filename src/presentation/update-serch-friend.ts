@@ -1,10 +1,9 @@
 import * as readline from "node:readline";
 import { ask } from "./ask.js";
 import { updateFriend } from "./updateFriend.js";
-import { searchByEmail } from "../core/validating/search_by_email.js";
-import { searchByPhoneNumber } from "../core/validating/search_by_phone_numb.js";
-import { searchResults } from "../control/search_result/search_result.control.js";
 import type { Friend } from "../model/friend.js";
+import { searchResults } from "../controller/search_result/search_result.control.js";
+import { tablePrint } from "./print-Table_friend.js";
 
 export const updateSearchFriend = async (
   search_Method: string,
@@ -21,13 +20,22 @@ export const updateSearchFriend = async (
   } else {
     const email = await ask("Enter the email to search\n", rl);
     result = await searchResults(email);
-    // console.log(result);
+
     if (result.length === 0) {
       console.log("Not found...");
       return;
     }
   }
 
-  const index = await ask("Enter the index to update", rl)
-  await updateFriend(index, rl);
+  await tablePrint(result);
+
+  rl.question("Enter the index to search: ", (inputValue) => {
+    const index = Number(inputValue);
+
+    if (isNaN(index)) {
+      console.log("Invalid index");
+    } else {
+      updateFriend(index, rl);
+    }
+  });
 };

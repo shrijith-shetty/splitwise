@@ -5,7 +5,7 @@ import { searchFriend } from "./search-friend.js";
 import { ask } from "./ask.js";
 import { deleteFriendByEmail, deleteFriendByName } from "./delete_friend.js";
 import { updateSearchFriend } from "./update-serch-friend.js";
-import { choose } from "../control/choice.js";
+import { choose } from "../controller/choice.js";
 import { options } from "./user_option.js";
 const rl = readline.createInterface({ input, output });
 export const manageFriends = async () => {
