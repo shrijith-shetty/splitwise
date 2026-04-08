@@ -6,8 +6,8 @@ import path from "node:path";
 
 const FILE_PATH = path.resolve(import.meta.dirname, "../../data/friend.json");
 
-export const updateFriend = async (index: number, rl: readline.Interface) => {
-  if (index === -1) return "Not found";
+export const updateFriend = async (index: string, rl: readline.Interface) => {
+  if (index === "-1") return "Not found";
   const data = await fs.readFile(FILE_PATH, "utf-8");
   const friends: Friend[] = JSON.parse(data);
   const currentIndex: Friend | undefined = friends[index];
