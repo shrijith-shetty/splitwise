@@ -1,8 +1,7 @@
 import { promises as fs } from "node:fs";
 import { FILE_PATH } from "../core/filt_path.core.js";
-import { getFriends } from "../core/getUserDetail/fetch_data.js";
-import { searchByName } from "../core/validating/search_by_name.js";
-import { json } from "node:stream/consumers";
+import { getFriends } from "../repository/getUserDetail/fetch_data.js";
+
 
 export const deleteFriendByEmail = async (email: string) => {
   const data = await fs.readFile(FILE_PATH, "utf-8");
@@ -26,7 +25,6 @@ export const deleteFriendByEmail = async (email: string) => {
 };
 
 export const deleteFriendByName = async (name: string) => {
-  // const data = await fs.readFile(FILE_PATH, "utf-8");
   try {
     const friends = await getFriends();
 

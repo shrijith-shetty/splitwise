@@ -1,4 +1,4 @@
-import { getFriends } from "../../core/getUserDetail/fetch_data.js";
+import { getFriends } from "../../repository/getUserDetail/fetch_data.js";
 import { tablePrint } from "../../presentation/print_table.js";
 export const searchResults = async (input: string) => {
   const data = await getFriends();
