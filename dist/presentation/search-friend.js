@@ -2,7 +2,7 @@ import * as readline from "node:readline";
 import { ask } from "./ask.js";
 import { getFriends } from "../repository/getUserDetail/fetch_data.js";
 import { searchResults } from "../controller/search_result/search_result.control.js";
-import { tablePrint } from "./print-Table_friend.js";
+import { tablePrint } from "./print_table.js";
 // import {}
 export const searchFriend = async (search_Method, rl) => {
     let nameOrEmail = "";

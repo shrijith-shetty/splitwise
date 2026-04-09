@@ -8,7 +8,7 @@ import { updateSearchFriend } from "./update-serch-friend.js";
 import { choose } from "../controller/choice.js";
 import { options } from "./user_option.js";
 import { searchResults } from "../controller/search_result/search_result.control.js";
-import { tablePrint } from "./print-Table_friend.js";
+import { tablePrint } from "./print_table.js";
 import { getFriends } from "../repository/getUserDetail/fetch_data.js";
 import type { Friend } from "../model/friend.js";
 import { promises as fs } from "node:fs";

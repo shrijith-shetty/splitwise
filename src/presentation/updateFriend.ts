@@ -13,34 +13,61 @@ export const updateFriend = async (index: number, rl: readline.Interface) => {
 
   const data = await fs.readFile(FILE_PATH, "utf-8");
   const friends: Friend[] = JSON.parse(data);
-  const currentIndex: Friend | undefined = searchFriends[index];
-  if (!currentIndex) return "Not found";
-  const name = await ask("Enter your name", rl, currentIndex?.name);
-  let email;
+
+  const selectedFriend: Friend | undefined = searchFriends[index];
+  if (!selectedFriend) return "Not found";
+
+  // Prefer matching by required unique id
+  const actualIndex = friends.findIndex(
+    (f) =>
+      f.id === selectedFriend.id &&
+      f.email === selectedFriend.email &&
+      f.phone === selectedFriend.phone,
+  );
+  if (actualIndex === -1) return "Not found";
+
+  // Guard array access (important when noUncheckedIndexedAccess is on)
+  const existing = friends[actualIndex];
+  if (!existing) return "Not found";
+
+  const name = await ask("Enter your name", rl, selectedFriend.name);
+
+  let email: string;
   do {
-    email = await ask("Enter you email address: ", rl, currentIndex?.email);
+    email = await ask("Enter you email address: ", rl, selectedFriend.email);
+    if (email.trim() === "") return true;
+
     const emailValidation = new UserValidation();
-    const exist = emailValidation.emailExist(email);
-    if (!exist) {
-      break;
-    }
-  } while (true);
-  let phone;
-  do {
-    phone = await ask("Enter you phone number: ", rl, currentIndex?.phone);
-    const emailValidation = new UserValidation();
-    const exist = emailValidation.isValidNumber(phone);
-    if (!exist) {
-      break;
-    }
+    const ok = await emailValidation.validateEmail(email, {
+      ignoreId: existing.id,
+    });
+    if (ok) break;
   } while (1);
-  const balance = await ask("Enter you balance: ", rl, currentIndex?.balance);
-  friends[index] = {
-    ...currentIndex,
-    name: name,
-    email: email,
-    phone: phone,
-    balance: balance,
+
+  let phone: string;
+  do {
+    phone = await ask("Enter you phone number: ", rl, selectedFriend.phone);
+    if (phone.trim() === "") return true;
+
+    const emailValidation = new UserValidation();
+    const ok = await emailValidation.isValidNumber(phone, {
+      ignoreId: existing.id,
+    });
+    if (ok) break;
+  } while (1);
+
+  const balance = await ask(
+    "Enter you balance: ",
+    rl,
+    String(selectedFriend.balance ?? ""),
+  );
+
+  friends[actualIndex] = {
+    ...existing, // keeps required fields like id
+    name,
+    email,
+    phone,
+    balance,
   };
 
   await fs.writeFile(FILE_PATH, JSON.stringify(friends, null, 2));

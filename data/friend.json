@@ -1,26 +1,26 @@
 [
   {
     "id": "1775093744038",
-    "name": "Harsha H",
-    "email": "harsha@example.com",
+    "name": "Harsha V",
+    "email": "harsha@gmail.in",
+    "phone": "7389012345",
+    "balance": "1000",
+    "isDeleted": true
+  },
+  {
+    "id": "1775093744038",
+    "name": "Harsha V",
+    "email": "harsha@hotmail.com",
+    "phone": "7389012345",
+    "balance": 300,
+    "isDeleted": false
+  },
+  {
+    "id": "1775093744038",
+    "name": "Harsha V",
+    "email": "harsha21@gmail.com",
     "phone": "7389012345",
     "balance": "0",
-    "isDeleted": false
-  },
-  {
-    "id": "1775093744002",
-    "name": "Ritu Sharma",
-    "email": "ritu@example.com",
-    "phone": "7023456789",
-    "balance": null,
-    "isDeleted": false
-  },
-  {
-    "id": "1775093744003",
-    "name": "Sanjay Gupta",
-    "email": "sanjay@example.com",
-    "phone": "7034567890",
-    "balance": 1500,
     "isDeleted": false
   },
   {
@@ -338,8 +338,8 @@
   {
     "id": "1775539119425",
     "name": "shrijith",
-    "email": "shrijth@gmail.com",
-    "phone": "23424252",
+    "email": "shrijith291@gmail.in",
+    "phone": "1234567890",
     "balance": "0",
     "isDeleted": false
   }
