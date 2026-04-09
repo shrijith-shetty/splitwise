@@ -4,6 +4,7 @@ export const options = [
     { label: "Update Friend", value: "3" },
     { label: "Delete Friend", value: "4" },
     { label: "List all Friend", value: "5" },
-    { label: "Exit", value: "6" },
+    { label: "Clear the display", value: "6" },
+    { label: "Exit", value: "7" },
 ];
 //# sourceMappingURL=user_option.js.map

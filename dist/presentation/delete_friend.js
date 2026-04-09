@@ -13,6 +13,7 @@ export const deleteFriendByEmail = async (email) => {
     }
     await fs.writeFile(FILE_PATH, JSON.stringify(updateFriends, null, 2), "utf-8");
     console.log("Friend deleted successfully");
+    return;
 };
 export const deleteFriendByName = async (name) => {
     try {
@@ -23,6 +24,10 @@ export const deleteFriendByName = async (name) => {
         let found = false;
         const updateFriends = friends.map((f) => {
             if (f.name.toLowerCase() === name.toLowerCase && !f.isDeleted) {
+                if (f.balance !== 0) {
+                    console.log("Can't delete(balance not zero)");
+                    return;
+                }
                 found = true;
                 return { ...f, isDeleted: true };
             }

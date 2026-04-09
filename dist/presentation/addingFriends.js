@@ -3,11 +3,38 @@ import * as readline from "node:readline";
 import { existsSync, mkdirSync } from "node:fs";
 import { ask } from "./ask.js";
 import path from "node:path";
+import { getFriends } from "../repository/getUserDetail/fetch_data.js";
 const FILE_PATH = path.resolve(import.meta.dirname, "../../data/friend.json");
 export const addFriend = async (rl) => {
     const name = await ask("Enter friend name", rl);
-    const email = await ask("Enter friend email", rl);
-    const phone = await ask("Enter phone number", rl);
+    const data = await getFriends();
+    let email;
+    do {
+        email = await ask("Enter friend email", rl);
+        if (email.length === 0)
+            break;
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            console.log("Invalid email format. Use: username@company.com");
+            continue;
+        }
+        if (!data?.some((e) => e.email === email))
+            break;
+        console.log(`${email} already exist!`);
+    } while (true);
+    let phone;
+    do {
+        phone = await ask("Enter phone number", rl);
+        if (phone.length === 0)
+            break;
+        if (phone.length !== 10) {
+            console.log("phone number should be of 10 digit");
+            continue;
+        }
+        const isExist = data.some((p) => p.phone === phone);
+        if (!isExist)
+            break;
+        console.log("Is already exist!");
+    } while (true);
     const balance = await ask("Enter opening balance", rl);
     const newFriend = {
         id: Date.now().toString(),
@@ -25,7 +52,7 @@ export const addFriend = async (rl) => {
         const friends = JSON.parse(data);
         friends.push(newFriend);
         await fs.writeFile(FILE_PATH, JSON.stringify(friends, null, 2));
-        // console.log("Friend saved!");  
+        // console.log("Friend saved!");
     }
     catch (err) {
         console.error("Error saving Friend:", err);

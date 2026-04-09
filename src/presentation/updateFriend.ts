@@ -3,7 +3,7 @@ import { promises as fs } from "node:fs";
 import type { Friend } from "../model/friend.js";
 import * as readline from "node:readline";
 import path from "node:path";
-import { searchFriends } from "../controller/search_result/search_result.control.js";
+import { searchFriends } from "../core/search_result/search_result.control.js";
 import { UserValidation } from "../core/validator/user_validation.js";
 
 const FILE_PATH = path.resolve(import.meta.dirname, "../../data/friend.json");

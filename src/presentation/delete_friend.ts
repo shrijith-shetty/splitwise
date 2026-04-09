@@ -1,7 +1,6 @@
 import { promises as fs } from "node:fs";
-import { FILE_PATH } from "../core/filt_path.core.js";
+import { FILE_PATH } from "../repository/filt_path.core.js";
 import { getFriends } from "../repository/getUserDetail/fetch_data.js";
-
 
 export const deleteFriendByEmail = async (email: string) => {
   const data = await fs.readFile(FILE_PATH, "utf-8");
@@ -22,6 +21,7 @@ export const deleteFriendByEmail = async (email: string) => {
     "utf-8",
   );
   console.log("Friend deleted successfully");
+  return;
 };
 
 export const deleteFriendByName = async (name: string) => {
@@ -36,6 +36,10 @@ export const deleteFriendByName = async (name: string) => {
 
     const updateFriends = friends.map((f: any) => {
       if (f.name.toLowerCase() === name.toLowerCase && !f.isDeleted) {
+        if (f.balance !== 0) {
+          console.log("Can't delete(balance not zero)");
+          return;
+        }
         found = true;
         return { ...f, isDeleted: true };
       }

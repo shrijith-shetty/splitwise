@@ -2,7 +2,7 @@ import * as readline from "node:readline";
 import { ask } from "./ask.js";
 import { updateFriend } from "./updateFriend.js";
 import type { Friend } from "../model/friend.js";
-import { searchResults } from "../controller/search_result/search_result.control.js";
+import { searchResults } from "../core/search_result/search_result.control.js";
 import { tablePrint } from "./print_table.js";
 
 export const updateSearchFriend = async (

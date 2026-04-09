@@ -3,7 +3,6 @@ import { stdin as input, stdout as output } from "node:process";
 import { addFriend } from "./addingFriends.js";
 import { searchFriend } from "./search-friend.js";
 import { ask } from "./ask.js";
-import { FILE_PATH } from "../core/filt_path.core.js";
 import { updateSearchFriend } from "./update-serch-friend.js";
 import { choose } from "../controller/choice.js";
 import { options } from "./user_option.js";
@@ -48,15 +47,19 @@ export const manageFriends = async () => {
                     console.log("Delete friend...");
                     const deleteFriend = await choose("1. Delete by name\n2. Delete By Email\n", rl);
                     if (!deleteFriend)
-                        return;
-                    let result;
+                        break;
+                    let result = [];
                     if (deleteFriend === "1") {
-                        const input = await ask("Enter the name to delete\n", rl);
+                        const input = (await ask("Enter the name to delete\n", rl)).trim();
                         result = await searchResults(input);
                     }
                     else {
-                        const input = await ask("Enter the email to delete\n", rl);
+                        const input = (await ask("Enter the email to delete\n", rl)).trim();
                         result = await searchResults(input);
+                    }
+                    if (!result || result.length === 0) {
+                        console.log("No matching records found");
+                        break;
                     }
                     tablePrint(result);
                     const index = await new Promise((resolve) => {
@@ -71,25 +74,29 @@ export const manageFriends = async () => {
                             }
                         });
                     });
-                    if (index < 0 || index > result.length) {
+                    const realIndex = index - 1;
+                    if (realIndex < 0 || realIndex >= result.length) {
                         console.log("Invalid index");
-                        return;
+                        break;
                     }
-                    if (result[index]?.balance !== "0") {
-                        console.log("Can't delete ");
-                        return;
+                    if (Number(result[realIndex]?.balance) !== 0) {
+                        console.log("Can't delete. Balance is not zero.");
+                        break;
                     }
-                    const id = result[index]?.id;
+                    const selectedFriend = result[realIndex];
+                    const id = selectedFriend?.id;
+                    console.log("\nSelected Friend:");
+                    console.log(selectedFriend);
                     const validation = await new Promise((resolve) => {
-                        rl.question("Do you want to delete the freind (y): ", (answer) => {
+                        rl.question("Do you want to delete the friend (y/n): ", (answer) => {
                             resolve(answer);
                         });
                     });
-                    if (validation.toLowerCase() === "y") {
+                    if (validation.trim().toLowerCase() === "y") {
                         const friendDetail = await getFriends();
-                        const index = friendDetail.findIndex((d) => d.id === id);
-                        if (index !== -1) {
-                            friendDetail[index].isDeleted = true;
+                        const deleteIndex = friendDetail.findIndex((d) => d.id === id);
+                        if (deleteIndex !== -1) {
+                            friendDetail[deleteIndex].isDeleted = true;
                             await fs.writeFile("./data/friend.json", JSON.stringify(friendDetail, null, 2));
                             console.log("Deleted successfully");
                         }
@@ -108,9 +115,12 @@ export const manageFriends = async () => {
                 break;
             }
             case "6":
-                console.log("Exiting...");
-                rl.close();
+                console.clear();
                 return;
+            case "7":
+                console.log("Exiting...!");
+                rl.close();
+                break;
             default:
                 console.log("\nInvalid choice. Please try again.");
         }

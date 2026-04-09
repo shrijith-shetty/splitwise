@@ -342,5 +342,37 @@
     "phone": "1234567890",
     "balance": "0",
     "isDeleted": false
+  },
+  {
+    "id": "1775759200813",
+    "name": "bhavish",
+    "email": "harsha@gmail.com",
+    "phone": "98097821313",
+    "balance": "0",
+    "isDeleted": true
+  },
+  {
+    "id": "1775759511531",
+    "name": "shrijith",
+    "email": "shrijith@hot.in",
+    "phone": "1233456789",
+    "balance": "0",
+    "isDeleted": true
+  },
+  {
+    "id": "1775759932843",
+    "name": "shrijith",
+    "email": "shrijith@gmail.in",
+    "phone": "1223122345",
+    "balance": "0",
+    "isDeleted": false
+  },
+  {
+    "id": "1775760093868",
+    "name": "harsha",
+    "email": "harsha@gmail.org",
+    "phone": "",
+    "balance": "0",
+    "isDeleted": false
   }
 ]

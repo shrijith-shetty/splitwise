@@ -24,7 +24,7 @@ export const tablePrint = (friends) => {
             columns
                 .map((col) => {
                 if (col.key === "idx")
-                    return pad(index.toString(), col.width);
+                    return pad((index + 1).toString(), col.width);
                 const value = friend[col.key] ?? "";
                 return pad(value.toString(), col.width);
             })
